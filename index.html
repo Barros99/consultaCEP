@@ -36,5 +36,11 @@
     transformUpperCaseFirstLetter = (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
     };
+
+    createAndFillElement = (element, text, data) => {
+        const object = document.createElement(element);
+        object.innerHTML = `${transformUpperCaseFirstLetter(text)}: ${data[text]}`;
+        return object;
+      };
   </script>
 </html>
