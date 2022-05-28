@@ -24,4 +24,13 @@
     </form>
     <div id="result"></div>
   </body>
+  <script>
+    getDataFromApi = async (cep) => {
+      const api = 'https://api.postmon.com.br/v1/cep/';
+      const data = await fetch(`${api}${cep}`).then((response) =>
+        response.json(),
+      );
+      return data;
+    };
+  </script>
 </html>
