@@ -42,5 +42,19 @@
         object.innerHTML = `${transformUpperCaseFirstLetter(text)}: ${data[text]}`;
         return object;
       };
+
+      document.getElementById('submit').addEventListener('click', async (e) => {
+        e.preventDefault();
+        const cep = document.getElementById('cep').value;
+        const result = document.getElementById('result');
+        const data = await getDataFromApi(cep);
+      
+        result.appendChild(createAndFillElement('p', 'logradouro', data));
+        result.appendChild(createAndFillElement('p', 'bairro', data));
+        result.appendChild(createAndFillElement('p', 'cidade', data));
+        result.appendChild(createAndFillElement('p', 'estado', data));
+        
+        result.appendChild(document.createElement('hr'));
+      });
   </script>
 </html>
