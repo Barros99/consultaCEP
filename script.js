@@ -22,8 +22,7 @@ const buildApiUrl = (base, param) => `${base}${param}`;
 
 const createAndFillElement = (elementType, contentKey, contentData) => {
   const element = document.createElement(elementType);
-  element.innerHTML =
-    element.innerHTML = `${contentKey}: ${contentData[contentKey]}`;
+  element.innerHTML = `${contentKey}: ${contentData[contentKey]}`;
   return element;
 };
 
