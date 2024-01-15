@@ -6,10 +6,6 @@ const fetchData = async (url) => {
 
 const buildApiUrl = (base, param) => `${base}${param}`;
 
-const transformUpperCaseFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
 const createAndFillElement = (elementType, contentKey, contentData) => {
   const element = document.createElement(elementType);
   element.innerHTML =
