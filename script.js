@@ -10,10 +10,11 @@ const transformUpperCaseFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-const createAndFillElement = (element, text, data) => {
-  const object = document.createElement(element);
-  object.innerHTML = `${transformUpperCaseFirstLetter(text)}: ${data[text]}`;
-  return object;
+const createAndFillElement = (elementType, contentKey, contentData) => {
+  const element = document.createElement(elementType);
+  element.innerHTML =
+    element.innerHTML = `${contentKey}: ${contentData[contentKey]}`;
+  return element;
 };
 
 document.getElementById("submit").addEventListener("click", async (e) => {
