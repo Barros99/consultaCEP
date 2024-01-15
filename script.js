@@ -42,12 +42,20 @@ const changeElementText = (element, newName) => {
 document.getElementById("submit").addEventListener("click", async (e) => {
   e.preventDefault();
   const cep = document.getElementById("cep").value;
+  const apiUrl = buildApiUrl("https://api.postmon.com.br/v1/cep/", cep);
+  const data = await fetchData(apiUrl);
   const result = document.getElementById("result");
-  const data = await getDataFromApi(cep);
 
-  ["logradouro", "bairro", "cidade", "estado"].forEach((text) =>
-    result.appendChild(createAndFillElement("p", text, data))
-  );
+  Object.keys(config).forEach((text) => {
+    const { key, label, dataKey } = config[text];
+    const element = createAndFillElement(
+      "p",
+      key,
+      dataKey ? data[dataKey] : data
+    );
+    changeElementText(element, label);
+    appendChildToElement(result, element);
+  });
 
-  result.appendChild(document.createElement("hr"));
+  appendChildToElement(result, document.createElement("hr"));
 });
