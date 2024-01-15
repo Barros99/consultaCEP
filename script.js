@@ -13,6 +13,8 @@ const createAndFillElement = (elementType, contentKey, contentData) => {
   return element;
 };
 
+const appendChildToElement = (parent, child) => parent.appendChild(child);
+
 document.getElementById("submit").addEventListener("click", async (e) => {
   e.preventDefault();
   const cep = document.getElementById("cep").value;
