@@ -1,8 +1,10 @@
-const getDataFromApi = async (cep) => {
-  const api = "https://api.postmon.com.br/v1/cep/";
-  const data = await fetch(`${api}${cep}`).then((response) => response.json());
+const fetchData = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
   return data;
 };
+
+const buildApiUrl = (base, param) => `${base}${param}`;
 
 const transformUpperCaseFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
