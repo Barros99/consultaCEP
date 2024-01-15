@@ -15,6 +15,16 @@ const createAndFillElement = (elementType, contentKey, contentData) => {
 
 const appendChildToElement = (parent, child) => parent.appendChild(child);
 
+const changeElementText = (element, newName) => {
+  const originalText = element.innerText;
+  let [name, valor] = originalText.split(":");
+  if (name === "area_km2") {
+    valor = `${valor} km²`;
+  }
+  const modifiedText = `${newName}: ${valor}`;
+  element.innerText = modifiedText;
+};
+
 document.getElementById("submit").addEventListener("click", async (e) => {
   e.preventDefault();
   const cep = document.getElementById("cep").value;
