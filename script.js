@@ -1,3 +1,17 @@
+const config = {
+  cep: { key: "cep", label: "CEP" },
+  logradouro: { key: "logradouro", label: "Logradouro" },
+  bairro: { key: "bairro", label: "Bairro" },
+  cidade: { key: "cidade", label: "Cidade" },
+  estado: { key: "estado", label: "UF" },
+  estado_info: { key: "nome", label: "Estado", dataKey: "estado_info" },
+  cidade_info: {
+    key: "area_km2",
+    label: "Área",
+    dataKey: "cidade_info",
+  },
+};
+
 const fetchData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
